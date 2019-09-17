@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "frontendwebserver" do |frontendwebserver|
     frontendwebserver.vm.hostname = "frontendwebserver"
-    frontendwebserver.vm.network "forwarded_port", guest: 80, host: 22, host_ip: "127.0.0.1"
+    frontendwebserver.vm.network "forwarded_port", guest: 80, host: 10222, host_ip: "127.0.0.1"
     frontendwebserver.vm.network "private_network", ip: "192.168.33.10"
 	
 	frontendwebserver.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
