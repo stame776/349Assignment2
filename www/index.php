@@ -81,7 +81,7 @@ if(isset($_POST['submitCategories'])){
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">SpendTrack</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -111,12 +111,12 @@ if(isset($_POST['submitCategories'])){
                     add another spending category to select from when you add a purchase</p>
                 <p>Remember, you can only track what you put in!</p>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="text-center">
                     <img src="money.png" class="rounded" style="padding-bottom: 10px">
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='graph.php'" name="goToTracking">Graph your spending</button>
-            </div>
+            </div> -->
         </div>
         <hr>
     </div>
@@ -127,14 +127,14 @@ if(isset($_POST['submitCategories'])){
     <div id="accordion">
         <div class="card">
             <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        Add Spending
-                    </button>
-                </h5>
+                <a class="collapsed" data-toggle="collapse" data-target="#collapseOne" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					<h5 class="mb-0">
+						Add Spending
+					</h5>
+				</a>
             </div>
 
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapseOne" class="collapse <?php if(isset($_POST['submitSpend'])){ echo "show"; } ?>" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row justify-content-center">
                         <form name="add-spend-form" method="post" id="add-spend-form">
@@ -188,13 +188,13 @@ if(isset($_POST['submitCategories'])){
         </div>
         <div class="card">
             <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Add Category
-                    </button>
-                </h5>
+				<a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+					<h5 class="mb-0">
+						Add Category
+					</h5>
+				</a>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div id="collapseTwo" class="collapse <?php if(isset($_POST['submitCategories'])){ echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row justify-content-center">
                         <form name="add-category-form" method="post" id="add-category-form">
